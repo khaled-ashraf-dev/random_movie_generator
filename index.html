@@ -11,49 +11,117 @@
 </head>
 
 <body>
+  <div id="filters">
+    <div id="filters-div">
+      <!-- Genre -->
+      <div class="filter-entry">
+        <label for="filter-genre">Genre</label>
+        <select id="filter-genre" name="genre"></select>
+      </div>
+
+      <!-- Year Range -->
+      <div class="filter-entry">
+        <label for="filter-year-from">Year From</label>
+        <input type="number" id="filter-year-from" name="year-from" min="1900" max="2023" placeholder="2010">
+      </div>
+      <div class="filter-entry">
+        <label for="filter-year-to">Year To</label>
+        <input type="number" id="filter-year-to" name="year-to" min="1900" max="2023" placeholder="2023">
+      </div>
+
+      <!-- Rating -->
+      <div class="filter-entry">
+        <label for="filter-rating">Rating</label>
+        <select id="filter-rating" name="rating">
+          <option value="5">5+</option>
+          <option value="6">6+</option>
+          <option value="7">7+</option>
+          <option value="8">8+</option>
+          <option value="9">9+</option>
+        </select>
+      </div>
+
+      <!-- Votes -->
+      <div class="filter-entry">
+        <label for="filter-votes">Votes</label>
+        <select id="filter-votes" name="votes">
+          <option value="5000">5,000+</option>
+          <option value="10000">10,000+</option>
+          <option value="25000">25,000+</option>
+          <option value="50000">50,000+</option>
+          <option value="100000">100,000+</option>
+          <option value="200000">200,000+</option>
+          <option value="500000">500,000+</option>
+        </select>
+      </div>
+
+      <!-- English Only -->
+      <div class="filter-entry">
+        <label for="filter-english">English Only</label>
+        <select id="filter-english" name="english">
+          <option value="yes" selected>Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+
+      <p id="close-overlay-button" onclick="hideFilters()">[x]</p>
+    </div>
+    <!-- Submit Button -->
+    <div class="submit-container">
+      <button type="submit" id="filter-submit-btn" onclick="hideFilters()">Submit</button>
+    </div>
+  </div>
+
   <div id="body-container">
     <h1 id="website-title">Random Movie Generator</h1>
     <div id="movie-info-container">
       <div class="img-container">
-        <img src="https://m.media-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SX300.jpg" crossorigin='anonymous' alt="movie poster" id="image">
+        <img src="https://m.media-amazon.com/images/M/MV5BMzg4MjYzNjk5N15BMl5BanBnXkFtZTgwODgwODI3MDI@._V1_SX300.jpg"
+          crossorigin='anonymous' alt="movie poster" id="image">
       </div>
-      
+
       <div id="movie-info">
         <div class="basic-info">
           <h2 id="movie-title">Jackie</h2>
-          <p>2016 • 1h 40m • ⭐ 6.7/10</p>
+          <p><span id="movie-year">2016</span> • <span id="movie-duration">1h 40m</span> • ⭐ <span
+              id="movie-rating">6.7</span>/10</p>
           <div id="genres-container">
-            <button class="left-btn">Biography</button>
+            <button>Biography</button>
             <button>Drama</button>
           </div>
         </div>
         <p id="summary">
-          Following the assassination of President John F. Kennedy, First Lady Jacqueline Kennedy fights through grief and trauma to regain her faith, console her children, and define her husband's historic legacy.
+          Following the assassination of President John F. Kennedy, First Lady Jacqueline Kennedy fights through grief
+          and trauma to regain her faith, console her children, and define her husband's historic legacy.
         </p>
         <div id="cast-container">
           <div class="cast-entry">
             <p class="cast-title">Director</p>
-            <p class="cast-name">Pablo Larraín</p>
+            <div class="directors-container" id="director">
+              <p class="cast-name">Pablo Larraín</p>
+            </div>
           </div>
           <div class="cast-entry">
             <p class="cast-title">Writer</p>
-            <p class="cast-name">Noah Oppenheim</p>
+            <div class="writers-container" id="writer">
+              <p class="cast-name">Noah Oppenheim</p>
+            </div>
           </div>
           <div class="cast-entry">
             <p class="cast-title">Stars</p>
-            <div class="stars-container">
+            <div class="stars-container" id="actors">
               <p class="cast-name">Natalie Portman</p>
               <p class="cast-name">Peter Sarsgaard</p>
               <p class="cast-name">Greta Gerwig</p>
-              
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="buttons-container controls-btns">
-      <button class="left-btn">Random</button>
-      <button>Filters</button>
+      <button onclick="getRandomMovie()">Random</button>
+      <button class="right-btn" onclick="showFilters()">Filters</button>
     </div>
   </div>
 

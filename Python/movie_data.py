@@ -26,6 +26,6 @@ def fetch_movie_data(api_key, imdb_ids, max_count=1000):
     omdb_db.insert_multiple(movie_api_responses)
 
 if __name__ == "__main__":
-    api_key = '6777025a'
+    api_key = ''
     movie_ids = read_movie_ids('movie_ids.txt')
     fetch_movie_data(api_key, movie_ids, max_count=1000)
