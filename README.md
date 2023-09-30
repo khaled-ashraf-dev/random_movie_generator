@@ -1,7 +1,7 @@
 
 # Random Movie Generator
 
-![Project Image](screenshot.png)
+![Project Image](showcase.png)
 
 ## Table of Contents
 
